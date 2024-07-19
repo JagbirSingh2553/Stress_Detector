@@ -1,0 +1,15 @@
+# Ignore environment variables file
+backend/.env
+
+# Ignore virtual environment directory
+backend/venv/
+
+# Ignore Python cache files
+backend/__pycache__/
+backend/*.pyc
+
+# Ignore IDE configuration directories
+backend/.idea/
+
+# Ignore other sensitive or unnecessary files
+.DS_Store
