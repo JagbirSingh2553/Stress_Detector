@@ -1,4 +1,15 @@
 flask
-python-dotenv
+flask-cors
+flask-pymongo
+flask-login
+flask-session
+joblib
+numpy
+librosa
 requests
-gunicorn
+openai
+speechrecognition
+bcrypt
+python-dotenv
+pymongo
+bson
