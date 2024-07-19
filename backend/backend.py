@@ -1,5 +1,4 @@
 import os
-from bson import ObjectId
 import numpy as np
 import librosa
 import joblib
@@ -14,7 +13,7 @@ import requests
 import speech_recognition as sr
 import bcrypt
 from datetime import datetime, timezone
-
+from bson.objectid import ObjectId 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b53188295937de88acf7c26a8c0a9de11c915d7e1defe86ded74dbd07ef0c5e6'
 app.config['MONGO_URI'] = 'mongodb+srv://jg581261:tubeligh@stressdetector.zkbcqby.mongodb.net/StressDetector?retryWrites=true&w=majority&appName=StressDetector'

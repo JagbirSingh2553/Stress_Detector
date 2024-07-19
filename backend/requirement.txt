@@ -12,4 +12,3 @@ speechrecognition
 bcrypt
 python-dotenv
 pymongo
-bson
