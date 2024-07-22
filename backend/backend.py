@@ -14,6 +14,7 @@ import speech_recognition as sr
 import bcrypt
 from datetime import datetime, timezone
 from bson.objectid import ObjectId 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b53188295937de88acf7c26a8c0a9de11c915d7e1defe86ded74dbd07ef0c5e6'
 app.config['MONGO_URI'] = 'mongodb+srv://jg581261:tubeligh@stressdetector.zkbcqby.mongodb.net/StressDetector?retryWrites=true&w=majority&appName=StressDetector'
@@ -30,6 +31,9 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 openai.api_key = OPENAI_API_KEY
 # Initialize MongoDB
 mongo = PyMongo(app)
+
+# Ensure unique index on username
+mongo.db.users.create_index('username', unique=True)
 
 # Check if MongoDB connection is successful
 try:
@@ -90,6 +94,10 @@ def register():
     
     if password != confirm_password:
         return jsonify({"message": "Passwords do not match"}), 400
+
+    existing_user = mongo.db.users.find_one({'username': username})
+    if existing_user:
+        return jsonify({"message": "Username already exists"}), 400
     
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     try:
