@@ -1,0 +1,16 @@
+flask
+flask-cors
+flask-pymongo
+flask-login
+flask-session
+joblib
+numpy<2.0.0
+librosa
+requests
+openai==0.28
+speechrecognition
+bcrypt
+python-dotenv
+pymongo
+scikit-learn==1.5.0
+soundfile
