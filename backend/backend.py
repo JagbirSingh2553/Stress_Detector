@@ -17,7 +17,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b53188295937de88acf7c26a8c0a9de11c915d7e1defe86ded74dbd07ef0c5e6'
-app.config['MONGO_URI'] = 'mongodb+srv://jg581261:tubeligh@stressdetector.zkbcqby.mongodb.net/StressDetector?retryWrites=true&w=majority&appName=StressDetector'
+app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 
 # Use server-side session
 app.config['SESSION_TYPE'] = 'filesystem'
